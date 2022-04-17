@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "465550748188",
+    "project_id": "sycon2022-46644",
+    "storage_bucket": "sycon2022-46644.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465550748188:android:d8aaa427c74def44d18dd9",
+        "android_client_info": {
+          "package_name": "com.ssnlakshya.sycon_ticketing_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465550748188-iukgij7tk601ivm08hat3ti3n1ngm7f9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ssnlakshya.sycon_ticketing_app",
+            "certificate_hash": "ad2371bd41a8f799925ddc4497d43e788f03c536"
+          }
+        },
+        {
+          "client_id": "465550748188-8sj8kdtersrig68kqjkk2dp84pbckkla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw7eXMgh2z_89MCmb3w4M7-4JDJpZN9PM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465550748188-8sj8kdtersrig68kqjkk2dp84pbckkla.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
