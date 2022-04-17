@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sycon_ticketing_app/api_keys.dart';
 import 'package:sycon_ticketing_app/constants.dart';
 import 'package:sycon_ticketing_app/screens/home.dart';
 import 'package:sycon_ticketing_app/screens/login.dart';
@@ -15,7 +17,18 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  await Firebase.initializeApp();
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: kApiKey,
+        appId: kAppId,
+        messagingSenderId: kMessagingSenderId,
+        projectId: kProjectId,
+      ),
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
   runApp(const ProviderScope(child: SyconTicketingApp()));
 }
 
