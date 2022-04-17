@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
@@ -18,6 +19,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   String _searchVal = "";
   bool _first = true;
   bool _isCollectLoading = false;
+  final TextEditingController _textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,12 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       behavior: HitTestBehavior.opaque,
       onTap: () {
         FocusScope.of(context).unfocus();
+        if (kIsWeb) {
+          setState(() {
+            _searchVal = _textEditingController.text;
+            _first = false;
+          });
+        }
       },
       child: SafeArea(
         minimum: const EdgeInsets.symmetric(horizontal: 20),
@@ -33,6 +41,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           children: [
             const SizedBox(height: 20),
             TextFormField(
+              controller: _textEditingController,
               cursorColor: kEbonyBlack,
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.search,
