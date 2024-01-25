@@ -4,8 +4,8 @@ import 'package:sycon_ticketing_app/constants.dart';
 class StatusPill extends StatelessWidget {
   final bool isLunch;
   final bool isSuccess;
-  const StatusPill({Key? key, required this.isLunch, required this.isSuccess})
-      : super(key: key);
+
+  const StatusPill({super.key, required this.isLunch, required this.isSuccess});
 
   @override
   Widget build(BuildContext context) {

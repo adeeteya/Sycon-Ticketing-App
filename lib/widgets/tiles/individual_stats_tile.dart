@@ -7,15 +7,15 @@ class IndividualStatsTile extends StatefulWidget {
   final String name;
   final int cash;
   final int onlineMoney;
+
   const IndividualStatsTile(
-      {Key? key,
+      {super.key,
       required this.name,
       required this.cash,
-      required this.onlineMoney})
-      : super(key: key);
+      required this.onlineMoney});
 
   @override
-  _IndividualStatsTileState createState() => _IndividualStatsTileState();
+  State<IndividualStatsTile> createState() => _IndividualStatsTileState();
 }
 
 class _IndividualStatsTileState extends State<IndividualStatsTile> {

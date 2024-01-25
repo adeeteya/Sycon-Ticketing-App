@@ -5,12 +5,13 @@ class LegendText extends StatelessWidget {
   final bool isBlue;
   final String text;
   final int value;
+
   const LegendText({
-    Key? key,
+    super.key,
     this.isBlue = true,
     required this.text,
     required this.value,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

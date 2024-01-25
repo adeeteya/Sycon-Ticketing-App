@@ -5,9 +5,9 @@ class AnimatedCounter extends StatelessWidget {
   final int endVal;
   final double? fontSize;
   final bool isBlue;
+
   const AnimatedCounter(
-      {Key? key, required this.endVal, this.isBlue = true, this.fontSize})
-      : super(key: key);
+      {super.key, required this.endVal, this.isBlue = true, this.fontSize});
 
   @override
   Widget build(BuildContext context) {

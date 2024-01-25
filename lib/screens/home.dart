@@ -10,7 +10,7 @@ import 'package:sycon_ticketing_app/screens/qr_scanner.dart';
 import 'package:sycon_ticketing_app/screens/search_screen.dart';
 
 class Home extends ConsumerStatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   ConsumerState<Home> createState() => _HomeState();
@@ -20,6 +20,7 @@ class _HomeState extends ConsumerState<Home> {
   int _selectedNavBarPosition = 0;
   late List<Widget> screens;
   late List<BottomNavigationBarItem> bottomNavBarItems;
+
   @override
   Widget build(BuildContext context) {
     final adminCheckRef = ref.watch(adminCheckProvider);

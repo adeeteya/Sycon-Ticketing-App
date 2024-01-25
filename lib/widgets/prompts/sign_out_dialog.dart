@@ -13,16 +13,17 @@ Future showSignOutDialog(BuildContext context) {
           onPressed: () {
             Navigator.pop(context);
           },
+          style: TextButton.styleFrom(foregroundColor: kEbonyBlack),
           child: const Text("No"),
-          style: TextButton.styleFrom(primary: kEbonyBlack),
         ),
         TextButton(
           onPressed: () async {
-            await FirebaseAuth.instance.signOut();
-            Navigator.pop(context);
+            await FirebaseAuth.instance
+                .signOut()
+                .then((value) => Navigator.pop(context));
           },
+          style: TextButton.styleFrom(foregroundColor: Colors.red),
           child: const Text("Yes"),
-          style: TextButton.styleFrom(primary: Colors.red),
         ),
       ],
     ),

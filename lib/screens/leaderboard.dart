@@ -7,7 +7,7 @@ import 'package:sycon_ticketing_app/providers.dart';
 import 'package:sycon_ticketing_app/widgets/tiles/leaderboard_tile.dart';
 
 class LeaderBoard extends ConsumerWidget {
-  const LeaderBoard({Key? key}) : super(key: key);
+  const LeaderBoard({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,7 +21,7 @@ class LeaderBoard extends ConsumerWidget {
         data: (organizerList) => RefreshIndicator(
           color: kSchoolBusYellow,
           onRefresh: () async {
-            ref.refresh(leaderBoardProvider);
+            ref.invalidate(leaderBoardProvider);
           },
           child: ListView(
             physics: const BouncingScrollPhysics(),

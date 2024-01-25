@@ -6,9 +6,18 @@ class UserData extends Organizer {
   int cash;
   int onlineMoney;
   List<Registration> registrationList = [];
-  UserData(email, name, department, referralCount, year, this.referralCode,
-      this.cash, this.onlineMoney, this.registrationList)
-      : super(email, name, department, referralCount, year);
+
+  UserData(
+      super.email,
+      super.name,
+      super.department,
+      super.referralCount,
+      super.year,
+      this.referralCode,
+      this.cash,
+      this.onlineMoney,
+      this.registrationList);
+
   factory UserData.fromJson(Map<String, dynamic> json, int cash,
       int onlineMoney, List<Registration> registrations) {
     return UserData(

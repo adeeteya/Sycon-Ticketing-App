@@ -133,8 +133,8 @@ Future showScannedErrorDialog(BuildContext context) {
           onPressed: () {
             Navigator.of(context).pop();
           },
+          style: TextButton.styleFrom(foregroundColor: kEbonyBlack),
           child: const Text("Ok"),
-          style: TextButton.styleFrom(primary: kEbonyBlack),
         )
       ],
     ),

@@ -4,6 +4,7 @@ class AdminData {
   int overallCash;
   int overallOnlineMoney;
   List<UserData> usersList;
+
   AdminData(this.overallCash, this.overallOnlineMoney, this.usersList);
 
   int getTotalMoney() {

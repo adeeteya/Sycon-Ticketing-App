@@ -5,10 +5,10 @@ import 'package:sycon_ticketing_app/services/firestore_services.dart';
 import 'package:sycon_ticketing_app/widgets/prompts/qr_scanned_prompt.dart';
 
 class QrScanner extends StatefulWidget {
-  const QrScanner({Key? key}) : super(key: key);
+  const QrScanner({super.key});
 
   @override
-  _QrScannerState createState() => _QrScannerState();
+  State<QrScanner> createState() => _QrScannerState();
 }
 
 class _QrScannerState extends State<QrScanner> {
@@ -21,30 +21,32 @@ class _QrScannerState extends State<QrScanner> {
     super.dispose();
   }
 
-  _onDetect(
-      Barcode scanData, MobileScannerArguments? mobileScannerArguments) async {
-    final String scannedCode = scanData.rawValue ?? "/";
+  void _onDetect(BarcodeCapture scanData) async {
+    final String scannedCode = scanData.barcodes.first.rawValue ?? "/";
     await cameraController.stop();
-    var registerInformation = await fetchRegisterInformation(scannedCode);
-    if (registerInformation == null) {
-      await showScannedErrorDialog(context);
-    } else {
-      Registration scannedRegister = registerInformation;
-      if (scannedRegister.isEntry) {
-        if (!scannedRegister.isLunch && DateTime.now().hour >= 12) {
-          scannedRegister.isLunch = true;
-          await allowRegisterAccess(scannedCode, isEntry: false);
-          await showScannedResultBottomSheet(context, scannedRegister, true);
-        } else {
-          await showScannedResultBottomSheet(context, scannedRegister, false);
-        }
+    await fetchRegisterInformation(scannedCode)
+        .then((registerInformation) async {
+      if (registerInformation == null) {
+        await showScannedErrorDialog(context);
       } else {
-        scannedRegister.isEntry = true;
-        await allowRegisterAccess(scannedCode, isEntry: true);
-        await showScannedResultBottomSheet(context, scannedRegister, true);
+        Registration scannedRegister = registerInformation;
+        if (scannedRegister.isEntry) {
+          if (!scannedRegister.isLunch && DateTime.now().hour >= 12) {
+            scannedRegister.isLunch = true;
+            await allowRegisterAccess(scannedCode, isEntry: false).then(
+                (value) => showScannedResultBottomSheet(
+                    context, scannedRegister, true));
+          } else {
+            await showScannedResultBottomSheet(context, scannedRegister, false);
+          }
+        } else {
+          scannedRegister.isEntry = true;
+          await allowRegisterAccess(scannedCode, isEntry: true).then((value) =>
+              showScannedResultBottomSheet(context, scannedRegister, true));
+        }
       }
-    }
-    await cameraController.start();
+      await cameraController.start();
+    });
   }
 
   @override
@@ -53,7 +55,6 @@ class _QrScannerState extends State<QrScanner> {
       body: Stack(
         children: [
           MobileScanner(
-            allowDuplicates: false,
             controller: cameraController,
             onDetect: _onDetect,
           ),

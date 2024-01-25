@@ -9,7 +9,8 @@ import 'package:sycon_ticketing_app/widgets/cards/search_result_card.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   final bool isAdmin;
-  const SearchScreen({Key? key, this.isAdmin = false}) : super(key: key);
+
+  const SearchScreen({super.key, this.isAdmin = false});
 
   @override
   ConsumerState createState() => _SearchScreenState();
@@ -86,7 +87,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                         await sendQREmail(searchResult.documentId,
                             searchResult.fullName, searchResult.email);
                         await incrementUserReferral();
-                        ref.refresh(userDataProvider);
+                        ref.invalidate(userDataProvider);
                         setState(() {
                           searchResult.hasPaid = true;
                           _isCollectLoading = false;

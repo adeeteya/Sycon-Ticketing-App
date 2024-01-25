@@ -12,6 +12,7 @@ class Registration {
   bool isLunch;
   String? paymentLink;
   String documentId;
+
   Registration(
       this.fullName,
       this.registerNumber,
@@ -26,6 +27,7 @@ class Registration {
       this.isLunch,
       this.documentId,
       {this.paymentLink});
+
   factory Registration.fromJson(Map<String, dynamic> json, String documentId) {
     return Registration(
         json['fullName'],

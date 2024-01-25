@@ -4,14 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sycon_ticketing_app/constants.dart';
 import 'package:sycon_ticketing_app/providers.dart';
-import 'package:sycon_ticketing_app/widgets/referral_table.dart';
 import 'package:sycon_ticketing_app/widgets/prompts/sign_out_dialog.dart';
+import 'package:sycon_ticketing_app/widgets/referral_table.dart';
 import 'package:sycon_ticketing_app/widgets/text/animated_text.dart';
 
 class AccountStats extends ConsumerStatefulWidget {
   const AccountStats({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   ConsumerState createState() => _AccountStatsState();
@@ -19,6 +19,7 @@ class AccountStats extends ConsumerStatefulWidget {
 
 class _AccountStatsState extends ConsumerState<AccountStats> {
   String _segmentedGroupValue = "Paid";
+
   @override
   Widget build(BuildContext context) {
     final userData = ref.watch(userDataProvider);

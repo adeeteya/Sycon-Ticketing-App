@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:sycon_ticketing_app/constants.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -38,15 +38,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _onSignInTap() async {
     if (_formKey.currentState!.validate()) {
-      try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: email.trim(), password: password);
-      } on FirebaseAuthException catch (e) {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email.trim(), password: password)
+          .then((_) => {}, onError: (error) {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
             title: const Text("Login Error"),
-            content: Text(e.message ?? "Some Unknown Error Occurred"),
+            content: const Text("Some Unknown Error Occurred"),
             actions: [
               TextButton(
                 onPressed: () {
@@ -60,13 +59,13 @@ class _LoginScreenState extends State<LoginScreen> {
             ],
           ),
         );
-      }
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
       child: Scaffold(
@@ -80,14 +79,14 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: _size.height * 0.08),
+                  SizedBox(height: size.height * 0.08),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Image.asset(
                       'assets/sycon_logo.png',
                     ),
                   ),
-                  SizedBox(height: _size.height * 0.08),
+                  SizedBox(height: size.height * 0.08),
                   const Text(
                     "Sign In",
                     style: TextStyle(
@@ -104,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(height: _size.height * 0.05),
+                  SizedBox(height: size.height * 0.05),
                   TextFormField(
                     onChanged: _emailOnChanged,
                     validator: _emailValidator,
@@ -119,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: _size.height * 0.03),
+                  SizedBox(height: size.height * 0.03),
                   TextFormField(
                     onChanged: _passwordOnChanged,
                     validator: _passwordValidator,
@@ -143,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: _size.height * 0.2),
+                  SizedBox(height: size.height * 0.2),
                   RepaintBoundary(
                     child: ElevatedButton(
                       onPressed: _onSignInTap,

@@ -6,12 +6,12 @@ class SearchResultCard extends StatelessWidget {
   final Registration searchResult;
   final VoidCallback onCollect;
   final bool isLoading;
+
   const SearchResultCard(
-      {Key? key,
+      {super.key,
       required this.searchResult,
       required this.onCollect,
-      this.isLoading = false})
-      : super(key: key);
+      this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {

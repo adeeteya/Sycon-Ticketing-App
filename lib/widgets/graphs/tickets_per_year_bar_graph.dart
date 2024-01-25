@@ -5,9 +5,9 @@ import 'package:sycon_ticketing_app/constants.dart';
 class TicketsPerYearBarGraph extends StatelessWidget {
   final List<int> ticketsData;
   final int yCoordinateVal;
+
   const TicketsPerYearBarGraph(
-      {Key? key, required this.ticketsData, required this.yCoordinateVal})
-      : super(key: key);
+      {super.key, required this.ticketsData, required this.yCoordinateVal});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,10 @@ class TicketsPerYearBarGraph extends StatelessWidget {
             ),
           ),
           titlesData: FlTitlesData(
-            topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-            rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            topTitles:
+                const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            rightTitles:
+                const AxisTitles(sideTitles: SideTitles(showTitles: false)),
             leftTitles: AxisTitles(
               axisNameWidget: const Text(
                 'Tickets',
@@ -82,7 +84,7 @@ class TicketsPerYearBarGraph extends StatelessWidget {
                     break;
                 }
                 return BarTooltipItem(
-                  yearString + '\n',
+                  '$yearString\n',
                   const TextStyle(
                     color: Colors.white,
                   ),

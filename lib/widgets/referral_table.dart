@@ -6,9 +6,9 @@ import 'package:url_launcher/url_launcher.dart';
 class ReferralTable extends StatelessWidget {
   final bool hasPaid;
   final List<Registration> registrationList;
+
   const ReferralTable(
-      {Key? key, required this.registrationList, required this.hasPaid})
-      : super(key: key);
+      {super.key, required this.registrationList, required this.hasPaid});
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +79,8 @@ class ReferralTable extends StatelessWidget {
                                   ),
                                 ),
                                 onTap: () {
-                                  launch(
-                                      "tel:${registrationList.elementAt(i).phone}");
+                                  launchUrl(Uri.parse(
+                                      "tel:${registrationList.elementAt(i).phone}"));
                                 },
                               ),
                               DataCell(

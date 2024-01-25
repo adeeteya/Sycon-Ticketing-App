@@ -5,18 +5,19 @@ import 'package:sycon_ticketing_app/widgets/text/legend_text.dart';
 class TicketsAndMoneyPieGraph extends StatefulWidget {
   final int moneyCollected;
   final int ticketsSold;
+
   const TicketsAndMoneyPieGraph(
-      {Key? key, required this.moneyCollected, required this.ticketsSold})
-      : super(key: key);
+      {super.key, required this.moneyCollected, required this.ticketsSold});
 
   @override
-  _TicketsAndMoneyPieGraphState createState() =>
+  State<TicketsAndMoneyPieGraph> createState() =>
       _TicketsAndMoneyPieGraphState();
 }
 
 class _TicketsAndMoneyPieGraphState extends State<TicketsAndMoneyPieGraph> {
   final int _moneyGoal = 160000;
   final int _ticketsGoal = 800;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

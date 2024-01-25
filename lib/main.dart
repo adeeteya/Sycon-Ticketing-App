@@ -1,8 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sycon_ticketing_app/api_keys.dart';
 import 'package:sycon_ticketing_app/constants.dart';
@@ -33,7 +33,7 @@ void main() async {
 }
 
 class SyconTicketingApp extends StatelessWidget {
-  const SyconTicketingApp({Key? key}) : super(key: key);
+  const SyconTicketingApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class SyconTicketingApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            primary: kCeruleanBlue,
+            backgroundColor: kCeruleanBlue,
             minimumSize: const Size(double.infinity, 0),
             padding: const EdgeInsets.symmetric(
               vertical: 15,
@@ -77,7 +77,7 @@ class SyconTicketingApp extends StatelessWidget {
 }
 
 class AuthWrapper extends StatelessWidget {
-  const AuthWrapper({Key? key}) : super(key: key);
+  const AuthWrapper({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ import 'package:sycon_ticketing_app/widgets/prompts/sign_out_dialog.dart';
 import 'package:sycon_ticketing_app/widgets/tiles/individual_stats_tile.dart';
 
 class AdminStatistics extends ConsumerStatefulWidget {
-  const AdminStatistics({Key? key}) : super(key: key);
+  const AdminStatistics({super.key});
 
   @override
   ConsumerState createState() => _AdminStatisticsState();
@@ -18,6 +18,7 @@ class AdminStatistics extends ConsumerStatefulWidget {
 class _AdminStatisticsState extends ConsumerState<AdminStatistics> {
   String _deptValue = "All";
   String _searchVal = "";
+
   @override
   Widget build(BuildContext context) {
     final adminDataRef = ref.watch(adminDataProvider);
@@ -125,40 +126,40 @@ class _AdminStatisticsState extends ConsumerState<AdminStatistics> {
                                   },
                                   items: const [
                                     DropdownMenuItem<String>(
-                                      child: Text('All'),
                                       value: 'All',
+                                      child: Text('All'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('EEE'),
                                       value: 'EEE',
+                                      child: Text('EEE'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('ECE'),
                                       value: 'ECE',
+                                      child: Text('ECE'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('IT'),
                                       value: 'IT',
+                                      child: Text('IT'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('CSE'),
                                       value: 'CSE',
+                                      child: Text('CSE'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('BME'),
                                       value: 'BME',
+                                      child: Text('BME'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('Civil'),
                                       value: 'Civil',
+                                      child: Text('Civil'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('Mech'),
                                       value: 'Mechanical',
+                                      child: Text('Mech'),
                                     ),
                                     DropdownMenuItem<String>(
-                                      child: Text('Chem'),
                                       value: 'Chemical',
+                                      child: Text('Chem'),
                                     )
                                   ],
                                 ),
