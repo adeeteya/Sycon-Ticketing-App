@@ -60,4 +60,4 @@ make this app a must-have for event attendees and organizers alike:
 
 ## 🤓 Developer
 
-**[Aditya R](https://github.com/adityar224)**
+**[Aditya R](https://github.com/adeeteya)**

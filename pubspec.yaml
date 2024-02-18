@@ -12,14 +12,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  firebase_core: ^2.24.2
-  firebase_auth: ^4.16.0
-  cloud_firestore: ^4.14.0
-  cloud_functions: ^4.6.0
+  firebase_core: ^2.25.3
+  firebase_auth: ^4.17.3
+  cloud_firestore: ^4.15.3
+  cloud_functions: ^4.6.4
   fl_chart: ^0.66.1
   flutter_riverpod: ^2.4.9
   lottie: ^3.0.0
-  mobile_scanner: ^3.5.6
+  mobile_scanner: ^4.0.0
   url_launcher: ^6.2.4
 
 dev_dependencies:
